@@ -106,7 +106,8 @@ def test_duplicate_level_names(names):
     assert mi.names == names
 
     # With .rename(., level=)
-    mi.rename(names[1], level=1, inplace=True)
+    return_value = mi.rename(names[1], level=1, inplace=True)
+    assert return_value is None
     mi = mi.rename([names[0], names[2]], level=[0, 2])
     assert mi.names == names
 

@@ -151,7 +151,8 @@ class TestCommon:
 
         # rename in place just leaves tuples and other containers alone
         name = ("A", "B")
-        index.rename(name, inplace=True)
+        return_value = index.rename(name, inplace=True)
+        assert return_value is None
         assert index.name == name
         assert index.names == [name]
 
